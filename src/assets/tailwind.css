@@ -4,6 +4,10 @@
 
 @tailwind utilities;
 
-.btn {
-  @apply px-4 py-2 bg-blue-600 text-white rounded;
+.btn-deco {
+  @apply border-r-2 border-white hover:underline;
+}
+
+.header-deco {
+  @apply bg-gradient-to-r from-blue-400 via-red-500 to-pink-500 flex p-4 text-white text-left;
 }
