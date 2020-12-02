@@ -1,38 +1,15 @@
 <template>
   <div class="home">
     <div class="container mx-auto">
-      <div class="header">
-        <div class="header-deco">
-          <div class="p-2 flex items-center justify-center">
-            <svg
-              class="w-16 h-16"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-          </div>
-          <div class="p-2">
-            <div class="font-extrabold text-4xl">Hacker News</div>
-            <div class="flex py-2 text-lg">
-              <button class="btn-deco pr-4">
-                New
-              </button>
-              <button class="btn-deco px-4">
-                comments
-              </button>
-              <button class="px-4 hover:underline">jobs</button>
-            </div>
-          </div>
-        </div>
+      <Header />
+      <div class="articles">
+        <ArticleBox
+          v-for="(item, index) in items"
+          :key="index"
+          :values="item"
+        />
       </div>
-
-      {{ SelectedItems }}
+      {{ item }}
       <div class="news">
         <div
           class="bg-gray-200  border-r-4 border-l-4 border-b-4 border-blue-400"
@@ -67,16 +44,16 @@
                   to=""
                   class="title text-2xl hover:underline hover:font-extrabold"
                 >
-                  {{ SelectedItems.title }}
+                  {{ items.title }}
                 </router-link>
                 <div class="flex py-2">
                   <button
                     class="hover:underline text-gray-500 border-r-2 border-gray-400 pr-4"
                   >
-                    {{ SelectedItems.score }} points by {{ SelectedItems.by }}
+                    {{ items.score }} points by {{ items.by }}
                   </button>
                   <button class="hover:underline text-gray-500 px-4">
-                    View {{ SelectedItems.descendants }} comments
+                    View {{ items.descendants }} comments
                   </button>
                 </div>
               </div>
@@ -89,25 +66,30 @@
 </template>
 
 <script>
+import Header from "../components/Header.vue";
+import ArticleBox from "../components/ArticleBox.vue";
+
 export default {
   name: "Home",
-  components: {},
-  data() {
+  components: {
+    Header,
+    ArticleBox,
+  },
+  data: () => {
     return {
-      SelectedItems: [],
+      items: [],
     };
   },
   mounted() {
     this.$http
-      .get(
-        "https://hacker-news.firebaseio.com/v0/item/25275637.json?print=pretty"
-      )
+      .get("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty")
       .then(function(item) {
-        this.SelectedItems = item.body;
+        this.items = item.body;
       })[0]
       .catch(function(error) {
         console.log("Error", error);
       });
+
     console.log(this.item);
   },
 };
