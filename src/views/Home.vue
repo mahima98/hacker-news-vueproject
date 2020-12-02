@@ -31,6 +31,8 @@
           </div>
         </div>
       </div>
+
+      {{ SelectedItems }}
       <div class="news">
         <div
           class="bg-gray-200  border-r-4 border-l-4 border-b-4 border-blue-400"
@@ -65,11 +67,16 @@
                   to=""
                   class="title text-2xl hover:underline hover:font-extrabold"
                 >
-                  AWS Lambda pricing now per ms (amazon.com)
+                  {{ SelectedItems.title }}
                 </router-link>
                 <div class="flex py-2">
-                  <button class="hover:underline text-gray-500">
-                    View 121 comments
+                  <button
+                    class="hover:underline text-gray-500 border-r-2 border-gray-400 pr-4"
+                  >
+                    {{ SelectedItems.score }} points by {{ SelectedItems.by }}
+                  </button>
+                  <button class="hover:underline text-gray-500 px-4">
+                    View {{ SelectedItems.descendants }} comments
                   </button>
                 </div>
               </div>
@@ -82,10 +89,26 @@
 </template>
 
 <script>
-// @ is an alias to /src
-
 export default {
   name: "Home",
   components: {},
+  data() {
+    return {
+      SelectedItems: [],
+    };
+  },
+  mounted() {
+    this.$http
+      .get(
+        "https://hacker-news.firebaseio.com/v0/item/25275637.json?print=pretty"
+      )
+      .then(function(item) {
+        this.SelectedItems = item.body;
+      })[0]
+      .catch(function(error) {
+        console.log("Error", error);
+      });
+    console.log(this.item);
+  },
 };
 </script>
