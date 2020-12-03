@@ -19,7 +19,7 @@
         <div class="font-extrabold text-4xl">Hacker News</div>
         <div class="flex py-2 text-lg">
           <button class="btn-deco pr-4">
-            New
+            <router-link to="/">Top stories</router-link>
           </button>
           <button class="btn-deco px-4">
             comments
