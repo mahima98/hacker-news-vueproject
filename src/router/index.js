@@ -19,7 +19,14 @@ const routes = [
     component: function() {
       return import(/* webpackChunkName: "about" */ "../views/About.vue");
     }
-  }
+  },
+  {
+    path: "/cmtpage/:id",
+    name: "Cmtpage",
+component: function() {
+      return import(/* webpackChunkName: "commentPage" */ "../views/Cmtpage.vue");
+    }
+  },
 ];
 
 const router = new VueRouter({
