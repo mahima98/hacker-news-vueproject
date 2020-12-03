@@ -1,7 +1,7 @@
 <template>
   <div class="CmtBox">
     <div class="bg-gray-200">
-      <div class="comment-box">
+      <div class="comment-box px-4">
         <div class="flex">
           <div class="justify-center px-2 py-5 space-x-2">
             <svg
