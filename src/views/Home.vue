@@ -2,7 +2,7 @@
   <div class="home">
     <div class="container mx-auto">
       <Header />
-      <div class="Top-stories">
+      <div class="topstories">
         <TopStories
           v-for="(item, index) in items"
           :key="index"
