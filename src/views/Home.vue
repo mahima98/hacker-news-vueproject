@@ -3,7 +3,7 @@
     <div class="container mx-auto">
       <Header />
       <div class="articles">
-        <ArticleBox
+        <TopStories
           v-for="(item, index) in items"
           :key="index"
           :values="item"
@@ -67,13 +67,13 @@
 
 <script>
 import Header from "../components/Header.vue";
-import ArticleBox from "../components/ArticleBox.vue";
+import TopStories from "../components/TopStories.vue";
 
 export default {
   name: "Home",
   components: {
     Header,
-    ArticleBox,
+    TopStories,
   },
   data: () => {
     return {
@@ -83,6 +83,7 @@ export default {
   mounted() {
     this.$http
       .get("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty")
+
       .then(function(item) {
         this.items = item.body;
       })[0]
