@@ -1,7 +1,7 @@
 <template>
-  <div class="CmtBox">
+  <div class="storybox">
     <div class="bg-gray-200">
-      <div class="comment-box px-4">
+      <div class="story-box px-4">
         <div class="flex">
           <div class="justify-center px-2 py-5 space-x-2">
             <svg
@@ -87,7 +87,7 @@
 </template>
 <script>
 export default {
-  name: "cmtpage",
+  name: "story",
   data() {
     return {
       selecteditem: [],
@@ -95,16 +95,17 @@ export default {
   },
 
   mounted() {
-    let cmtpageid = this.$route.params.id;
-    this.$http
-      .get(
-        "https://hacker-news.firebaseio.com/v0/item/" +
-          cmtpageid +
-          ".json?print=pretty"
-      )
-      .then(function(item) {
-        this.selecteditem = item.body;
-      })[0]
+    let storyid = this.$route.params.id;
+
+    fetch(
+      "https://hacker-news.firebaseio.com/v0/item/" +
+        storyid +
+        ".json?print=pretty"
+    )
+      .then((res) => res.json())
+      .then((item) => {
+        this.selecteditem = item;
+      })
       .catch(function(error) {
         console.log("Error:", error);
       });
