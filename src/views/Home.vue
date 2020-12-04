@@ -3,11 +3,13 @@
     <div class="container mx-auto">
       <Header />
       <div class="topstories">
-        <TopStories
-          v-for="(item, index) in items"
-          :key="index"
-          :values="item"
-        />
+        <div class="bg-gray-200 py-4">
+          <TopStories
+            v-for="(item, index) in items"
+            :key="index"
+            :values="item"
+          />
+        </div>
       </div>
       {{ item }}
       <div class="news">
