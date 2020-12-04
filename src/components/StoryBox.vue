@@ -51,9 +51,9 @@
         </div>
         <div class="comment-section">
           <CommentRow
-            v-for="(item, index) in selecteditem"
+            v-for="(item, index) in selecteditem.kids"
             :key="index"
-            :commentvalues="selecteditem"
+            :commentvalues="item"
           />
         </div>
       </div>
