@@ -21,10 +21,10 @@ const routes = [
     }
   },
   {
-    path: "/cmtpage/:id",
-    name: "Cmtpage",
+    path: "/story/:id",
+    name: "Story",
 component: function() {
-      return import(/* webpackChunkName: "commentPage" */ "../views/Cmtpage.vue");
+      return import(/* webpackChunkName: "commentPage" */ "../views/Story.vue");
     }
   },
 ];
