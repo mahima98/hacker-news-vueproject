@@ -45,7 +45,15 @@
               {{ selecteditem.score }} points by {{ selecteditem.by }}
             </button>
             <button class="hover:underline text-gray-500 px-4">
-              <router-link to="">
+              <router-link
+                v-if="values"
+                :to="{
+                  name: 'Story',
+                  params: {
+                    id: values,
+                  },
+                }"
+              >
                 View {{ selecteditem.descendants }} comments
               </router-link>
             </button>
