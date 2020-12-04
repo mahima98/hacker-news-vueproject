@@ -6,8 +6,9 @@
         <div class="bg-gray-200 py-4">
           <TopStory
             v-for="(item, index) in items.slice(0, 8)"
-            :key="index"
+            :key="item.id"
             :values="item"
+            :numbers="index"
           />
         </div>
       </div>
