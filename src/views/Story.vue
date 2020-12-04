@@ -4,9 +4,7 @@
       <Header />
 
       <div class="news">
-        <div
-          class="bg-gray-200  border-r-4 border-l-4 border-b-4 border-blue-400"
-        >
+        <div class="bg-gray-200 py-2">
           <StoryBox />
         </div>
       </div>
