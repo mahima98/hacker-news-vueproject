@@ -19,8 +19,9 @@
       </svg>
     </div>
     <div class="All-comments py-4 text-left">
-      <div class="text-black">
-        {{ commentvalues.kids }}
+      <div v-if="commentvalues" class="text-black">
+        Happy birthday soekjin
+        {{ commentvalues }}
       </div>
       <!-- <div class="text-black text-sm">
         There is an easy explanation for this: developers optimize their code
