@@ -26,16 +26,27 @@
           </div>
         </div>
         <div class="info p-4 text-left">
-          <Row :values="values"></Row>
+          <router-link
+            v-if="values"
+            :to="{
+              name: 'Story',
+              params: {
+                id: values,
+              },
+            }"
+            class="title text-2xl hover:underline hover:font-extrabold"
+          >
+            {{ selecteditem.title }}
+          </router-link>
           <div class="flex py-2">
             <button
               class="hover:underline text-gray-500 border-r-2 border-gray-400 pr-4"
             >
-              {{ selecteditem.score }} points by {{ values.by }}
+              {{ selecteditem.score }} points by {{ selecteditem.by }}
             </button>
             <button class="hover:underline text-gray-500 px-4">
               <router-link to="">
-                View {{ values.descendants }} comments
+                View {{ selecteditem.descendants }} comments
               </router-link>
             </button>
           </div>
@@ -45,11 +56,8 @@
   </div>
 </template>
 <script>
-import Row from "./Row.vue";
 export default {
-  components: {
-    Row,
-  },
+  components: {},
   props: ["values"],
   data() {
     return {
@@ -58,20 +66,15 @@ export default {
   },
 
   mounted() {
-    // let vm = this.values;
-
-    // vm.$nextTick(function() {
-    //   console.log(vm.values);
-    // });
-    this.$http
-      .get(
-        "https://hacker-news.firebaseio.com/v0/item/" +
-          this.values +
-          ".json?print=pretty"
-      )
-      .then(function(item) {
-        this.selecteditem = item.body;
-      })[0]
+    fetch(
+      "https://hacker-news.firebaseio.com/v0/item/" +
+        this.values +
+        ".json?print=pretty"
+    )
+      .then((res) => res.json())
+      .then((item) => {
+        this.selecteditem = item;
+      })
       .catch(function(error) {
         console.log("Error:", error);
       });
