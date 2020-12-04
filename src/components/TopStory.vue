@@ -3,7 +3,7 @@
     <div class="item-box px-4">
       <div class="flex">
         <div class="Number flex justify-center p-4 space-x-2">
-          <div class="text-2xl">1.</div>
+          <div class="text-2xl">{{ indexnumber }}.</div>
           <div>
             <button>
               <svg
@@ -58,14 +58,17 @@
 <script>
 export default {
   components: {},
-  props: ["values"],
+  props: ["values", "numbers"],
+
   data() {
     return {
+      indexnumber: [],
       selecteditem: [],
     };
   },
 
   mounted() {
+    this.indexnumber = this.numbers + 1;
     fetch(
       "https://hacker-news.firebaseio.com/v0/item/" +
         this.values +
