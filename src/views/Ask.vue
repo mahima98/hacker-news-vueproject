@@ -5,7 +5,7 @@
       <div class="Ask-HN-questions">
         <div class="bg-gray-200 py-4">
           <Item
-            v-for="(item, index) in items"
+            v-for="(item, index) in items.slice(0, 10)"
             :key="item.id"
             :values="item"
             :numbers="index"
