@@ -1,11 +1,11 @@
 <template>
-  <div class="CmtPage">
+  <div class="story">
     <div class="container mx-auto">
       <Header />
 
       <div class="news">
         <div class="bg-gray-200 py-2">
-          <StoryBox />
+          <ItemBox />
         </div>
       </div>
     </div>
@@ -13,12 +13,12 @@
 </template>
 <script>
 import Header from "../components/Header.vue";
-import StoryBox from "../components/StoryBox.vue";
+import ItemBox from "../components/ItemBox.vue";
 
 export default {
   components: {
     Header,
-    StoryBox,
+    ItemBox,
   },
 };
 </script>
