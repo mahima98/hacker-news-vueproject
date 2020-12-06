@@ -8,7 +8,7 @@
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
-                height="18"
+                height="24"
                 viewBox="0 0 24 24"
                 fill="gray"
                 stroke="currentColor"
@@ -23,7 +23,7 @@
               </svg>
             </div>
             <div class="info py-4 text-left">
-              <div class="text-black text-lg">
+              <div class="text-black text-2xl">
                 {{ selecteditem.title }}
               </div>
               <div class="flex pb-2">
@@ -38,20 +38,12 @@
                   </router-link>
                 </button>
               </div>
-              <div class="py-2">
-                <textarea
-                  name="comment"
-                  form="usrform"
-                  class="w-full h-32"
-                ></textarea>
-                <button class="p-2 bg-gray-300 my-4">Add comment</button>
-              </div>
             </div>
           </div>
         </div>
         <div class="comment-section">
           <CommentRow
-            v-for="(item, index) in selecteditem.kids"
+            v-for="(item, index) in selecteditem.kids.slice(0, 5)"
             :key="index"
             :commentvalues="item"
           />
