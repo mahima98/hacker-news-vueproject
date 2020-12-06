@@ -4,7 +4,7 @@
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="15"
-        height="15"
+        height="14"
         viewBox="0 0 24 24"
         fill="gray"
         stroke="currentColor"
@@ -19,19 +19,34 @@
       </svg>
     </div>
     <div class="All-comments py-4 text-left">
-      <div class="text-sm text-gray-500">
+      <div class="text-sm text-gray-500 underline">
         {{ selectedcomment.by }} {{ selectedcomment.time }} hours ago
       </div>
       <div v-if="commentvalues" class="text-black">
         {{ selectedcomment.text }}
+        <div class="text-md underline pt-4">
+          reply
+        </div>
+        <RepliesRow
+          v-for="(item, index) in selectedcomment.kids.slice(0, 5)"
+          :key="index"
+          :comment="item"
+          :v-if="selectedcomment.kids > 0"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import RepliesRow from "./RepliesRow.vue";
+
 export default {
   props: ["commentvalues"],
+
+  components: {
+    RepliesRow,
+  },
   data() {
     return {
       selectedcomment: [],
