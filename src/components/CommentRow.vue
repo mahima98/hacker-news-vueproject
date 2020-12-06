@@ -28,7 +28,7 @@
           reply
         </div>
         <RepliesRow
-          v-for="(item, index) in selectedcomment.kids.slice(0, 5)"
+          v-for="(item, index) in selectedcomment.kids.slice(0, 10)"
           :key="index"
           :comment="item"
           :v-if="selectedcomment.kids > 0"
