@@ -18,8 +18,11 @@
       <div class="p-2">
         <div class="font-extrabold text-4xl">Hacker News</div>
         <div class="flex py-2 text-lg">
-          <button class="pr-4">
+          <button class="btn-deco pr-4">
             <router-link to="/">Top stories</router-link>
+          </button>
+          <button class="px-4">
+            <router-link to="/Ask">Ask HN</router-link>
           </button>
         </div>
       </div>
