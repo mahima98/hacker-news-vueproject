@@ -4,7 +4,7 @@
       <Header />
       <div class="topstories">
         <div class="bg-gray-200 py-4">
-          <TopStory
+          <Item
             v-for="(item, index) in items.slice(0, 8)"
             :key="item.id"
             :values="item"
@@ -18,13 +18,13 @@
 
 <script>
 import Header from "../components/Header.vue";
-import TopStory from "../components/TopStory.vue";
+import Item from "../components/Item.vue";
 
 export default {
   name: "Home",
   components: {
     Header,
-    TopStory,
+    Item,
   },
   data: () => {
     return {
