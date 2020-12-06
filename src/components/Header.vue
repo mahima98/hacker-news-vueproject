@@ -18,13 +18,9 @@
       <div class="p-2">
         <div class="font-extrabold text-4xl">Hacker News</div>
         <div class="flex py-2 text-lg">
-          <button class="btn-deco pr-4">
+          <button class="pr-4">
             <router-link to="/">Top stories</router-link>
           </button>
-          <button class="btn-deco px-4">
-            comments
-          </button>
-          <button class="px-4 hover:underline">jobs</button>
         </div>
       </div>
     </div>
