@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -25,6 +26,20 @@ const routes = [
     name: "Story",
 component: function() {
       return import(/* webpackChunkName: "commentPage" */ "../views/Story.vue");
+    }
+  }, 
+  {
+    path: "/ask",
+    name: "Ask",
+component: function() {
+      return import(/* webpackChunkName: "commentPage" */ "../views/Ask.vue");
+    }
+  },
+  {
+    path: "/question",
+    name: "Question",
+component: function() {
+      return import(/* webpackChunkName: "commentPage" */ "../views/Ask.vue");
     }
   },
 ];
