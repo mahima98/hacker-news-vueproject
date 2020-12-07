@@ -41,11 +41,11 @@
             </div>
           </div>
         </div>
-        <div class="comment-section">
+        <div class="comment-section" v-if="selecteditem.kids">
           <CommentRow
             v-for="(item, index) in selecteditem.kids.slice(0, 5)"
             :key="index"
-            :commentvalues="item"
+            :comment="item"
           />
         </div>
       </div>
