@@ -1,7 +1,7 @@
 <template>
-  <div class="storybox">
+  <div class="itembox">
     <div class="bg-gray-200">
-      <div class="story-box px-4">
+      <div class="item-box px-4">
         <div class="title-section">
           <div class="flex">
             <div class="justify-center px-2 py-5 space-x-2">
