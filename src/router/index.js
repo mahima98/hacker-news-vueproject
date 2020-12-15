@@ -42,6 +42,13 @@ component: function() {
       return import(/* webpackChunkName: "commentPage" */ "../views/Ask.vue");
     }
   },
+   {
+    path: "/user/:by",
+    name: "user",
+component: function() {
+      return import(/* webpackChunkName: "commentPage" */ "../views/user.vue");
+    }
+  },
 ];
 
 const router = new VueRouter({
