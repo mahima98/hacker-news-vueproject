@@ -38,12 +38,20 @@
           >
             {{ selecteditem.title }}
           </router-link>
-          <div class="flex py-2">
-            <button
+          <div class="flex py-2 text-gray-500">
+            <div class="pr-1">{{ selecteditem.score }} points by</div>
+            <router-link
+              v-if="values"
+              :to="{
+                name: 'user',
+                params: {
+                  by: selecteditem.by,
+                },
+              }"
               class="hover:underline text-gray-500 border-r-2 border-gray-400 pr-4"
             >
-              {{ selecteditem.score }} points by {{ selecteditem.by }}
-            </button>
+              {{ selecteditem.by }}
+            </router-link>
             <button class="hover:underline text-gray-500 px-4">
               <router-link
                 v-if="values"
