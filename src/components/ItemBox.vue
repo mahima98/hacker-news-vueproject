@@ -27,11 +27,17 @@
                 {{ selecteditem.title }}
               </div>
               <div class="flex pb-2">
-                <button
-                  class="hover:underline text-gray-500 border-r-2 border-gray-400 pr-4"
+                <div
+                  class="text-gray-500 border-r-2 border-gray-400 pr-4"
                 >
-                  {{ selecteditem.score }} points by {{ selecteditem.by }}
-                </button>
+                  {{ selecteditem.score }} points by <router-link
+              :to="{
+                name: 'user',
+                params: {
+                  by: selecteditem.by,
+                },
+              }" class="hover:underline ">{{ selecteditem.by }}</router-link> 
+                </div>
                 <button class="hover:underline text-gray-500 px-4">
                   <router-link to="">
                     View {{ selecteditem.descendants }} comments
