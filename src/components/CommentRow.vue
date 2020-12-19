@@ -1,5 +1,6 @@
 <template>
   <div class="flex">
+    
     <div class="justify-center text-gray-500 px-4 py-5 space-x-2">
       <!-- <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -36,32 +37,17 @@
         ></path>
       </svg>
     </div>
+   
     <div class="All-comments py-4 text-left">
       <div v-if="!loading">
         <div class="flex space-x-2">
           <div class="text-sm text-gray-500 underline">
             {{ selectedcomment.by }} {{ selectedcomment.time }} hours ago
           </div>
-          <div @click="open = true">
-            <svg
-              class="w-4 h-4"
-              data-darkreader-inline-fill=""
-              data-darkreader-inline-stroke=""
-              fill="none"
-              stroke="currentColor"
-              style="--darkreader-inline-fill:none; --darkreader-inline-stroke:currentColor;"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-              ></path>
-            </svg>
+          <div @click="open = true" class="hover:underline cursor-pointer" v-if="selectedcomment.kids"> [{{ selectedcomment.kids.length }} comments]
+            
           </div>
-          <div>
+          <div class="flex items-center">
             <svg
               class="w-4 h-4"
               data-darkreader-inline-fill=""
@@ -104,8 +90,7 @@
             <div class="text-md underline pt-4">
               reply
             </div>
-            <div v-if="selectedcomment.kids">
-              Has {{ selectedcomment.kids.length }} comments
+            <div>
               <CommentRow
                 v-for="(item, index) in selectedcomment.kids"
                 :key="index"
