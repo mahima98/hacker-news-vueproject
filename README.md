@@ -1,10 +1,9 @@
 # hacker-news-vueproject
 
 About
-<!-- <img src="../assets/hacker-vue.png"/> -->
 ![](images/hackervue.png)
 ```
-Hacker news 
+![](images/hackervue.png)
 ```
 ## Project setup
 ```
