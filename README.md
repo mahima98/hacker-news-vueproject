@@ -2,7 +2,7 @@
 
 About
 <!-- <img src="../assets/hacker-vue.png"/> -->
-![Screenshot](/home/mahi/Projects/github.com/mahima98/hacker-news-vueproject/src/assets/hacker-vue.png)
+![](images/hackervue.png)
 ```
 Hacker news 
 ```
