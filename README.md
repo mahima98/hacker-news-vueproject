@@ -1,7 +1,7 @@
 # hacker-news-vueproject
 
 About
-<img src="../src/assets/hacker-vue.png">
+<img src="../assets/hacker-vue.png"/>
 ```
 Hacker news 
 ```
