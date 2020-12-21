@@ -1,5 +1,9 @@
 # hacker-news-vueproject
 
+##About
+```
+Hacker news 
+```
 ## Project setup
 ```
 npm install
