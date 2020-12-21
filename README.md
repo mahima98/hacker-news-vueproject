@@ -1,6 +1,6 @@
 # hacker-news-vueproject
 
-Hacker-news consist of real time data. Throughout this project, Fetch APIs are used for fetching resources from Hecker-news-firebase. Here, only Top 10 stories and Ask HN are displayed with its related comments and users. 
+Hacker-news consist of real time data. Throughout this project, Fetch APIs has been used for fetching resources from Hacker-news-firebase. Here, only Top 10 stories and Ask HN are displayed with its related comments and users. 
 
 ![](images/hackervue.png)
 
